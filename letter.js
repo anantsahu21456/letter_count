@@ -1,0 +1,22 @@
+function countCharacters(str){
+    const countMap = new Map()
+
+    const cleanedStr = str.replace(/\s/g,'').toUpperCase();
+    for(let char of cleanedStr){
+        countMap.set(char,(countMap.get(char) || 0 ) + 1);
+
+    }
+    let result = '';
+    for (let char of cleanedStr){
+        if (countMap.has(char)){
+            result += `${char}-${countMap.get(char)}\n`;
+            countMap.delete(char);
+        }
+    }
+    return result.trim();
+}
+console.log(countCharacters("Amolya Sharma"));
+
+console.log('hello from anant')
+
+console.log(countCharacters("Chinmay Kulkarni"));
